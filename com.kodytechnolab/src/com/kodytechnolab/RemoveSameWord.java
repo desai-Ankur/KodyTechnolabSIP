@@ -3,30 +3,35 @@ import java.util.Scanner;
 
 public class RemoveSameWord {
 	public static void main(String[] args) {	
-		Scanner sc=new Scanner(System.in);
-		String[] str=new String[10];
-		int sentence;
+		Scanner sc=new Scanner(System.in);	
+		int size;
 		System.out.println("Enter a number of sentence: ");
-		sentence=Integer.parseInt(sc.nextLine());
-		
-		for(int i=0;i<sentence;i++) {
+		size=Integer.parseInt(sc.nextLine());
+		String[] sentence=new String[size];
+		//User input a sentence
+		for(int i=0;i<size;i++) {
 			System.out.println("Enter a Sentence: ");
-			str[i]=sc.nextLine();
+			sentence[i]=sc.nextLine();
 		}
 		
-		String[] split=new String[10];
-		String[] ans=new String[10];
+		String[] split=new String[size];
+		String[] ans=new String[size];
 		int l=0;
-		for(int j=0;j<sentence;j++)
+		
+		for(int j=0;j<size;j++)
 		{
-			split=str[j].split(" ");
+			//one by one sentence split
+			split=sentence[j].split(" ");
 			String Sentence1="";
 			for(int k=0;k<split.length;k++)
+				// split word compare 
 				for(int i=k+1;i<split.length;i++)
+					// if match then replace to ignore
 					if(split[k].equalsIgnoreCase(split[i]))
 						split[i]="Ignore";
 					else
 						continue;		
+			// if ignore word then skip and another word then store
 			for(int k=0;k<split.length;k++)
 					if(split[k].equals("Ignore"))
 						continue;
@@ -36,7 +41,7 @@ public class RemoveSameWord {
 			System.out.println("");
 		}
 		System.out.println("Remove duplicate after look like:");
-		for(int j=0;j<sentence;j++)
+		for(int j=0;j<size;j++)
 			System.out.println(ans[j]);
 	}
 }
