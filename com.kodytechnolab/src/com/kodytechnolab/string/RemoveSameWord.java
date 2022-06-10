@@ -31,24 +31,28 @@ public class RemoveSameWord {
 	public static void main(String[] args) {
 	
 		Scanner sc = new Scanner(System.in);
-		int size;
+		
+		//Toatl sentence store
+		int sentenceSize;
 		
 		System.out.println("Enter a number of sentence: ");
-		size = Integer.parseInt(sc.nextLine());
+		sentenceSize = Integer.parseInt(sc.nextLine());
 		
-		String[] sentence = new String[size];
+		String[] sentence = new String[sentenceSize];
 		
 		// User input a sentence
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < sentenceSize; i++) {
 			System.out.println("Enter a Sentence: ");
 			sentence[i] = sc.nextLine();
 		}
-
-		String[] split = new String[size];
-		String[] ans = new String[size];
+		
+		//one by one sentence split
+		String[] split = new String[sentenceSize];
+		//remove after sentence store in ans
+		String[] ans = new String[sentenceSize];
 		int l = 0;
 
-		for (int j = 0; j < size; j++) {
+		for (int j = 0; j < sentenceSize; j++) {
 			
 			// one by one sentence split
 			split = sentence[j].split(" ");
@@ -77,7 +81,7 @@ public class RemoveSameWord {
 		}
 		
 		System.out.println("Remove duplicate after look like:");
-		for (int j = 0; j < size; j++)
+		for (int j = 0; j < sentenceSize; j++)
 			System.out.println(ans[j]);
 	}
 }

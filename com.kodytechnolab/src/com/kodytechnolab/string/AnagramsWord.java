@@ -13,23 +13,29 @@ import java.util.Scanner;
 public class AnagramsWord {
 
 	public static void main(String[] args) {
+		//Count the same character in both word
 		int count=0;
+		
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter a First Word:");
 		String firstWord=sc.next();
 		System.out.println("Enter a Second Word:");
 		String secondWord=sc.next();
+		
+		//For comaprision
 		char[] arrFirst=firstWord.trim().toLowerCase().toCharArray();
 		char[] arrSecond=secondWord.trim().toLowerCase().toCharArray();
-		if(firstWord.length()==secondWord.length())
-		{	for(int i=0;i<arrFirst.length;i++)
+		
+		//Same word Length
+		if(firstWord.length()==secondWord.length()){	
+			for(int i=0;i<arrFirst.length;i++)
 				for(int j=0;j<arrSecond.length;j++)
-					if(arrFirst[i]==arrSecond[j])
-					{	
+					if(arrFirst[i]==arrSecond[j]) {	
 						arrSecond[j]=' ';
 						count++;
 						break;
 					}
+			//same 
 		  if(count==firstWord.length())
 			  System.out.println("Both words are Anagrams.");
 		  else
